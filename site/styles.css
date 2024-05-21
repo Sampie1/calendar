@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.navbar{
+    margin-bottom: 80px;
+    box-shadow: 1px black;
+    padding: 1rem;
+    color: black;
+    background-color: #fff;
+}
+
+.nav-link{
+    color: black;
+    font-size: 18px;
+}
