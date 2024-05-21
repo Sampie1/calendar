@@ -1,0 +1,160 @@
+<script src="https://cdn.jsdelivr.net/npm/ical.js@1.5.0/build/ical.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/main.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/main.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/locales-all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/icalendar@5.11.5/main.global.min.js"></script>
+
+<div id='calendar'></div>
+
+<div id="calendar-item-modal" class="mfp-hide small-dialog" style="max-width: 720px; padding-top: 40px;">
+    <div class="sign-in-form">
+        <div class="popup-tabs-container" id="calender-item-container">
+        </div>
+    </div>
+</div>
+
+<script>
+    function mobileCheck() {
+        if (window.matchMedia('(max-width: 600px)').matches) {
+            return 'dayGridDay';
+        }
+
+        if (window.matchMedia('(min-width: 600px)').matches && window.matchMedia('(max-width: 1024px)').matches) {
+            return 'dayGridWeek';
+        }
+
+        return 'dayGridMonth';
+    }
+
+    function formatIsoDate(isoStringStart, isoStringEnd) {
+        var dateStart = isoStringStart.slice(0, 10).split('-').reverse().join('-');
+        var timeStart = isoStringStart.slice(11, 16);
+
+        var dateEnd = isoStringEnd.slice(0, 10).split('-').reverse().join('-');
+        var timeEnd = isoStringEnd.slice(11, 16);
+
+        if (dateStart === dateEnd) {
+            return dateStart + ' ' + timeStart + ' - ' + timeEnd;
+        }
+
+        return dateStart + ' ' + timeStart + ' - ' + dateEnd + ' ' + timeEnd;
+    }
+
+    function openCalendarItemModal(event) {
+        $('#calendar-item-title').text(event.title);
+        $('#calendar-item-description').text(event.extendedProps.description);
+        $('#calendar-item-location').text(event.extendedProps.location);
+
+        $.ajax({
+            url: event.url,
+            type: 'GET',
+            success: function(response) {
+                $('#calender-item-container').html(response);
+            }
+        });
+
+        // set URL
+        $('#calendar-item-url').attr('href', event.url);
+
+        $.magnificPopup.open({
+            items: {
+                src: '#calendar-item-modal',
+                type: 'inline'
+            },
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendar = new FullCalendar.Calendar(document.getElementById('calendar'), {
+            events: {
+                url: '/calendar/ics',
+                format: 'ics'
+            },
+            locale: 'nl',
+
+            // make user choosable
+            weekends: false,
+            weekNumbers: true,
+            showNonCurrentDates: false,
+            navLinks: true,
+            nowIndicator: true,
+            dayMaxEventRows: 5,
+
+            // end user choosable
+
+            selectable: true,
+            editable: true,
+
+            headerToolbar: {
+                left: 'title',
+                right: 'dayGridYear,dayGridMonth,timeGridWeek,timeGridDay today prev,next'
+            },
+
+            businessHours: {
+                daysOfWeek: [1, 2, 3, 4, 5],
+
+                startTime: '08:00',
+                endTime: '18:00',
+            },
+            views: {
+                dayGridYear: {
+                    titleFormat: {
+                        year: 'numeric'
+                    },
+                },
+                dayGridMonth: {
+                    titleFormat: {
+                        year: 'numeric',
+                        month: 'long'
+                    },
+                },
+                dayGridWeek: {
+                    titleFormat: {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    },
+                },
+                dayGridDay: {
+                    titleFormat: {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    },
+                },
+            },
+            initialView: 'dayGridMonth',
+
+            windowResize: function(arg) {
+                if (window.matchMedia('(max-width: 600px)').matches) {
+                    calendar.changeView('dayGridDay');
+                    calendar.setOption('height', '70vh');
+                }
+
+                if (window.matchMedia('(min-width: 600px)').matches && window.matchMedia('(max-width: 992px)').matches) {
+                    calendar.changeView('dayGridWeek');
+                }
+
+                if (window.matchMedia('(min-width: 992px)').matches) {
+                    calendar.changeView('dayGridMonth');
+                }
+            },
+
+            eventClick: function(info) {
+                info.jsEvent.preventDefault();
+
+                console.log(info.event);
+                openCalendarItemModal(info.event);
+            }
+        });
+
+        calendar.render();
+
+    });
+</script>
+<style>
+    .sidebar-header {
+        border-bottom: none;
+        text-align: left;
+    }
+</style>
