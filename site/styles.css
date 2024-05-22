@@ -5,7 +5,7 @@
 
 .navbar{
     margin-bottom: 80px;
-    box-shadow: 1px black;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
     padding: 1rem;
     color: black;
     background-color: #fff;
@@ -14,4 +14,22 @@
 .nav-link{
     color: black;
     font-size: 18px;
+    font-weight: bold;
+}
+
+.nav-link:hover{
+    color: #951B81;
+}
+
+.nav-img{
+    width: 180px;
+    height: 38px;
+}
+
+.h2-kalender{
+    margin-left: 20px;
+}
+
+.fc-toolbar-title{
+    margin: 0 20px !important;
 }

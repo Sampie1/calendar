@@ -1,0 +1,78 @@
+$color-p: #951B81;
+$color-b: black;
+$color-w: #fff;
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: $color-w;
+}
+
+.navbar{
+    margin-bottom: 80px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+    padding: 1rem;
+    color: $color-b;
+    background-color: $color-w;
+}
+
+.nav-link{
+    color: $color-b;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.fc-addEventButton-button, .fc-dayGridYear-button, .fc-dayGridMonth-button, .fc-timeGridWeek-button, .fc-timeGridDay-button, .fc-today-button, .fc-prev-button, .fc-next-button{
+    background-color: $color-p !important;
+    color: $color-w !important;
+}
+
+.fc-addEventButton-button:hover{
+    background-color: #6d0f5d !important;
+}
+
+.fc-dayGridYear-button:hover{
+    background-color: #6d0f5d !important;
+}
+
+.fc-dayGridMonth-button:hover{
+    background-color: #6d0f5d !important;
+}
+
+
+.fc--button{
+    display: none !important;
+}
+
+.nav-link:hover{
+    color: $color-p;
+}
+
+.nav-img{
+    width: 180px;
+    height: 38px;
+}
+
+.container-fluid{
+    width: auto;
+}
+
+.h2-kalender{
+    margin-left: 20px;
+}
+
+.fc-toolbar-title{
+    margin: 0 20px !important;
+}
+
+.fc-button-group{
+    margin: 0 20px !important;
+}
+
+.fc-today-button{
+    margin: 0 20px !important;
+}
+
