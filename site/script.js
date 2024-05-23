@@ -1,54 +1,55 @@
 document.addEventListener('DOMContentLoaded', function () {
   var calendarEl = document.getElementById('calendar');
 
+
+
+
   var calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: 'dayGridMonth',
     headerToolbar: {
       center: '',
       left: 'title',
-      right: 'addEventButton, dayGridYear,dayGridMonth,timeGridWeek,timeGridDay today prev,next'
+      right: 'dayGridYear,dayGridMonth,timeGridWeek,timeGridDay today prev,next'
     },
-    customButtons: {
-      addEventButton: {
-        text: 'Afspraak toevoegen',
-        click: function () {
-          var dateStr = prompt('Voer datum in. Voorbeeld: YYYY-MM-DD');
-          var date = new Date(dateStr + 'T00:00:00'); // will be in local time
 
-          if (!isNaN(date.valueOf())) { // valid?
-            calendar.addEvent({
-              title: 'Afspraak',
-              start: date,
-              allDay: false
-            });
-            alert('Great. Now, update your database...');
-          } else {
-            alert('Ongeldige datum');
-          }
-        }
-      }
-    },
+
     eventSources: [
-
       // your event source
       {
         events: [ // put the array in the `events` property
           {
+            id: 'event-1',
             title: 'event1',
-            start: '2010-01-01'
+            start: '2024-05-24T08:30:00',
+            end: '2024-05-24T13:30:00',
+            color: 'green',     // an option!
+            textColor: 'white' // an option!
           },
           {
+            id: 'event-2',
             title: 'event2',
-            start: '2010-01-05',
-            end: '2024-05-23'
+            start: '2024-05-23T09:00:00',
+            end: '2024-05-23T12:30:00',
+            color: 'purple',     // an option!
+            textColor: 'white' // an option!
           },
           {
+            id: 'event-3',
             title: 'event3',
-            start: '2010-01-09T12:30:00',
+            start: '2024-05-23T12:50:00',
+            end: '2024-05-23T14:00:00',
+            color: 'blue',     // an option!
+            textColor: 'white' // an option!
+          },
+          {
+            id: 'event-4',
+            title: 'event4',
+            start: '2024-05-01T12:50:00',
+            end: '2024-05-01T14:00:00',
+            color: 'blue',     // an option!
+            textColor: 'white' // an option!
           }
         ],
-        color: 'black',     // an option!
-        textColor: 'yellow' // an option!
       }
     ],
     locale: 'nl',
@@ -132,25 +133,51 @@ function formatIsoDate(isoStringStart, isoStringEnd) {
 }
 
 function openCalendarItemModal(event) {
-  $('#calendar-item-title').text(event.title);
-  $('#calendar-item-description').text(event.extendedProps.description);
-  $('#calendar-item-location').text(event.extendedProps.location);
-
-  $.ajax({
-    url: event.url,
-    type: 'GET',
-    success: function (response) {
-      $('#calender-item-container').html(response);
-    }
-  });
-
-  // set URL
-  $('#calendar-item-url').attr('href', event.url);
-
-  $.magnificPopup.open({
-    items: {
-      src: '#calendar-item-modal',
-      type: 'inline'
-    },
-  });
+  console.log(event);
+  var eventModal = new bootstrap.Modal('#eventModal', {
+    keyboard: false
+  })
+  eventModal.show();
+  document.getElementById('event-titel').innerHTML = 'event titel';
 }
+
+
+var modalWrap = null;
+const showModal = () => {
+  if (modalWrap !== null) {
+    modalWrap.remove();
+  }
+
+  modalWrap = document.createElement('div');
+  modalWrap.innerHTML = `
+    <div class="modal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content" style="text-align: center;">
+          <div class="modal-header">
+            <h5 class="modal-title">Afspraak toevoegen aan de kalender</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div style="background-color:#fff; class="modal-body">
+            <label for="Datum"><b>Voer datum in:</b></label>
+            <br>
+            <p>Voorbeeld: 2024-05-23</p>
+            <input type="text" name="date" style="margin-bottom: 10px">
+          </div>
+          <div class="modal-footer" style="background-color:#fff;">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: #fff; color: black;">Close</button>
+            <button type="button" class="btn btn-primary" style="background-color: #9c0082;">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.body.append(modalWrap);
+
+  var modal = new bootstrap.Modal(modalWrap.querySelector('.modal'));
+  modal.show();
+};
+
+document.querySelector('.btn-toevoegen').addEventListener('click', showModal);
+
+

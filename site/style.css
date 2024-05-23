@@ -8,7 +8,7 @@ body {
 }
 
 .navbar {
-  margin-bottom: 80px;
+  margin-bottom: 40px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   padding: 1rem;
   color: black;
@@ -21,13 +21,13 @@ body {
   font-weight: bold;
 }
 
-.fc-addEventButton-button, .fc-dayGridYear-button, .fc-dayGridMonth-button, .fc-timeGridWeek-button, .fc-timeGridDay-button, .fc-today-button, .fc-prev-button, .fc-next-button {
-  background-color: #951B81 !important;
-  color: #fff !important;
+.fc-header-toolbar {
+  margin-bottom: 3rem !important;
 }
 
-.fc-addEventButton-button:hover {
-  background-color: #6d0f5d !important;
+.fc-dayGridYear-button, .fc-dayGridMonth-button, .fc-timeGridWeek-button, .fc-timeGridDay-button, .fc-today-button, .fc-prev-button, .fc-next-button {
+  background-color: #951B81 !important;
+  color: #fff !important;
 }
 
 .fc-dayGridYear-button:hover {
@@ -35,6 +35,26 @@ body {
 }
 
 .fc-dayGridMonth-button:hover {
+  background-color: #6d0f5d !important;
+}
+
+.fc-timeGridWeek-button:hover {
+  background-color: #6d0f5d !important;
+}
+
+.fc-timeGridDay-button:hover {
+  background-color: #6d0f5d !important;
+}
+
+.fc-prev-button:hover {
+  background-color: #6d0f5d !important;
+}
+
+.fc-next-button:hover {
+  background-color: #6d0f5d !important;
+}
+
+.btn-toevoegen:hover {
   background-color: #6d0f5d !important;
 }
 
@@ -69,4 +89,32 @@ body {
 
 .fc-today-button {
   margin: 0 20px !important;
+}
+
+.btn-toevoegen {
+  height: 35px;
+  width: 170px;
+  border-radius: 5%;
+  color: #fff;
+  background-color: #951B81;
+}
+
+.h2-toevoegen {
+  display: flex;
+  align-items: center;
+  margin-right: 0%;
+  width: 0%;
+}
+
+a {
+  color: #951B81;
+}
+
+.fc-scrollgrid-section-header {
+  /*background-color: #811c7067;*/
+  background-color: rgba(149, 27, 129, 0.431372549);
+}
+
+.fc-daygrid-day-frame {
+  background-color: rgba(243, 243, 243, 0.9529411765);
 }/*# sourceMappingURL=style.css.map */
