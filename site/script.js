@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
         events: [ // put the array in the `events` property
           {
             id: 'event-1',
-            title: 'event1',
+            title: 'event1 title',
             start: '2024-05-24T08:30:00',
             end: '2024-05-24T13:30:00',
             color: 'green',     // an option!
@@ -47,7 +47,9 @@ document.addEventListener('DOMContentLoaded', function () {
             start: '2024-05-01T12:50:00',
             end: '2024-05-01T14:00:00',
             color: 'blue',     // an option!
-            textColor: 'white' // an option!
+            textColor: 'white', // an option!
+            description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit. Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin. Fusce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh, in tempus sapien eros vitae ligula. Pellentesque rhoncus nunc et augue. Integer id felis. Curabitur aliquet pellentesque diam. Integer quis metus vitae elit lobortis egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero phare',
+            myPersonalVariable: 'test'
           }
         ],
       }
@@ -108,14 +110,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     eventClick: function (info) {
       info.jsEvent.preventDefault();
-      console.log(info.event);
       openCalendarItemModal(info.event);
     },
   });
 
   calendar.render();
 
-  console.log(calendar.getEvents());
 });
 
 function formatIsoDate(isoStringStart, isoStringEnd) {
@@ -138,7 +138,30 @@ function openCalendarItemModal(event) {
     keyboard: false
   })
   eventModal.show();
-  document.getElementById('event-titel').innerHTML = 'event titel';
+  document.getElementById('event-titel').innerHTML = event.title;
+
+  console.log(event.id);
+  console.log(event.title);
+  console.log(event.start);
+  console.log(event.end);
+  console.log(event.url);
+  console.log(event.backgroundColor);
+  console.log(event.textColor);
+  console.log(event.extendedProps.description);
+  console.log(event.extendedProps.myPersonalVariable);
+
+  // Event
+  // event.id = id
+  // event.title = title
+  // event.start = start tijd
+  // event.end = eind tijd
+  // event.color = achtergrond kleur
+  // event.textColor = text kleur
+  // event.url = link
+  // event.description = beschrijving
+  // event extendedProps = custom properties
+    //  event.ExtendedProps.myPersonalVariable = custom property
+
 }
 
 
