@@ -1,6 +1,7 @@
 $color-p: #951B81;
 $color-b: black;
 $color-w: #fff;
+$hover-c: #6d0f5d;
 
 *{
     margin: 0;
@@ -35,31 +36,31 @@ body{
 }
 
 .fc-dayGridYear-button:hover{
-    background-color: #6d0f5d !important;
+    background-color: $hover-c !important;
 }
 
 .fc-dayGridMonth-button:hover{
-    background-color: #6d0f5d !important;
+    background-color: $hover-c !important;
 }
 
 .fc-timeGridWeek-button:hover{
-    background-color: #6d0f5d !important;
+    background-color: $hover-c !important;
 }
 
 .fc-timeGridDay-button:hover{
-    background-color: #6d0f5d !important;
+    background-color: $hover-c !important;
 }
 
 .fc-prev-button:hover{
-    background-color: #6d0f5d !important;
+    background-color: $hover-c !important;
 }
 
 .fc-next-button:hover{
-    background-color: #6d0f5d !important;
+    background-color: $hover-c !important;
 }
 
 .btn-toevoegen:hover{
-    background-color: #6d0f5d !important;
+    background-color: $hover-c !important;
 }
 
 .fc--button{
@@ -115,10 +116,14 @@ a {
 }
 
 .fc-scrollgrid-section-header  {
-    /*background-color: #811c7067;*/
     background-color: #951b816e;
 }
 
 .fc-daygrid-day-frame{
     background-color: #f3f3f3f3;
+}
+
+.btn{
+    background-color: #fff;
+    color: black;
 }

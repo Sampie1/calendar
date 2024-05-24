@@ -2,8 +2,6 @@ document.addEventListener('DOMContentLoaded', function () {
   var calendarEl = document.getElementById('calendar');
 
 
-
-
   var calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: 'dayGridMonth',
     headerToolbar: {
@@ -19,37 +17,58 @@ document.addEventListener('DOMContentLoaded', function () {
         events: [ // put the array in the `events` property
           {
             id: 'event-1',
-            title: 'event1 title',
-            start: '2024-05-24T08:30:00',
-            end: '2024-05-24T13:30:00',
+            title: 'Event 1 titel',
+            start: '2024-05-01T08:30:00',
+            end: '2024-05-01T13:30:00',
             color: 'green',     // an option!
-            textColor: 'white' // an option!
+            textColor: 'white', // an option!
+            description: 'Tijd: 08:30 - 13:30. <br> Dit is de beschijving van event 1',
           },
           {
             id: 'event-2',
-            title: 'event2',
+            title: 'Event 2 titel',
             start: '2024-05-23T09:00:00',
             end: '2024-05-23T12:30:00',
             color: 'purple',     // an option!
-            textColor: 'white' // an option!
+            textColor: 'white', // an option!
+            description: 'Tijd: 09:00 - 12:30. <br> Dit is de beschijving van event 2',
           },
           {
             id: 'event-3',
-            title: 'event3',
-            start: '2024-05-23T12:50:00',
+            title: 'Event 3 titel',
+            start: '2024-05-23T12:30:00',
             end: '2024-05-23T14:00:00',
             color: 'blue',     // an option!
-            textColor: 'white' // an option!
+            textColor: 'white', // an option!
+            description: 'Tijd: 12:30 - 15:00. <br> Dit is de beschijving van event 3'
           },
           {
             id: 'event-4',
-            title: 'event4',
-            start: '2024-05-01T12:50:00',
-            end: '2024-05-01T14:00:00',
+            title: 'Event 4 titel',
+            start: '2024-05-24T12:50:00',
+            end: '2024-05-24T14:00:00',
             color: 'blue',     // an option!
             textColor: 'white', // an option!
-            description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit. Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin. Fusce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh, in tempus sapien eros vitae ligula. Pellentesque rhoncus nunc et augue. Integer id felis. Curabitur aliquet pellentesque diam. Integer quis metus vitae elit lobortis egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero phare',
+            description: 'Tijd: 12:50 - 14:00. <br> Dit is de beschijving van event 4',
             myPersonalVariable: 'test'
+          },
+          {
+            id: 'event-5',
+            title: 'Event 5 titel',
+            start: '2024-05-27T12:30:00',
+            end: '2024-05-27T14:00:00',
+            color: 'yellow',     // an option!
+            textColor: 'white', // an option!
+            description: 'Tijd: 12:30 - 14:00. <br> Dit is de beschijving van event 5'
+          },
+          {
+            id: 'event-6',
+            title: 'Event 6 titel',
+            start: '2024-05-28T09:30:00',
+            end: '2024-05-28T12:15:00',
+            color: 'orange',     // an option!
+            textColor: 'white', // an option!
+            description: 'Tijd: 09:30 - 12:15. <br> Dit is de beschijving van event 6'
           }
         ],
       }
@@ -139,6 +158,7 @@ function openCalendarItemModal(event) {
   })
   eventModal.show();
   document.getElementById('event-titel').innerHTML = event.title;
+  document.getElementById('event-beschrijving').innerHTML = event.extendedProps.description;
 
   console.log(event.id);
   console.log(event.title);

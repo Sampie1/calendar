@@ -111,10 +111,14 @@ a {
 }
 
 .fc-scrollgrid-section-header {
-  /*background-color: #811c7067;*/
   background-color: rgba(149, 27, 129, 0.431372549);
 }
 
 .fc-daygrid-day-frame {
   background-color: rgba(243, 243, 243, 0.9529411765);
+}
+
+.btn {
+  background-color: #fff;
+  color: black;
 }/*# sourceMappingURL=style.css.map */
