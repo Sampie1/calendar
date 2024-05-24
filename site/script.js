@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
             end: '2024-05-01T13:30:00',
             color: 'green',     // an option!
             textColor: 'white', // an option!
-            description: 'Tijd: 08:30 - 13:30. <br> Dit is de beschijving van event 1',
+            description: 'Tijd: 08:30 - 13:30. <br> Dit is de beschijving van event 1 lorem 111111111111111111111111111111111111111111111111111111',
           },
           {
             id: 'event-2',
@@ -195,20 +195,28 @@ const showModal = () => {
   modalWrap.innerHTML = `
     <div class="modal" tabindex="-1">
       <div class="modal-dialog">
-        <div class="modal-content" style="text-align: center;">
+        <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">Afspraak toevoegen aan de kalender</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div style="background-color:#fff; class="modal-body">
-            <label for="Datum"><b>Voer datum in:</b></label>
+          <div class="modal-body">
+          <br>
+            <label for="Datum"><b>Datum:</b></label>
             <br>
             <p>Voorbeeld: 2024-05-23</p>
             <input type="text" name="date" style="margin-bottom: 10px">
+            <br>
+            <label for="Tijd"><b>Tijd:</b></label>
+            <p>Voorbeeld: 12:30:00</p>
+            <input type="text" name="date" style="margin-bottom: 10px">
+            <br>
+            <label for="Tijd"><b>Beschrijving:</b></label>
+            <p></p>
+            <input type="text" name="date" style="margin-bottom: 20px;">
           </div>
-          <div class="modal-footer" style="background-color:#fff;">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: #fff; color: black;">Close</button>
-            <button type="button" class="btn btn-primary" style="background-color: #9c0082;">Save changes</button>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sluiten</button>
+            <button type="button" class="btn btn-primary">Opslaan</button>
           </div>
         </div>
       </div>

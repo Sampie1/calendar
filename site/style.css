@@ -21,6 +21,10 @@ body {
   font-weight: bold;
 }
 
+.navbar-brand {
+  float: left;
+}
+
 .fc-header-toolbar {
   margin-bottom: 3rem !important;
 }
@@ -92,9 +96,9 @@ body {
 }
 
 .btn-toevoegen {
+  margin-right: 20px;
   height: 35px;
   width: 170px;
-  border-radius: 5%;
   color: #fff;
   background-color: #951B81;
   float: right;
@@ -120,7 +124,73 @@ a {
   background-color: rgba(243, 243, 243, 0.9529411765);
 }
 
+/*Event btn*/
 .btn {
-  background-color: #fff;
-  color: black;
+  background-color: rgb(189, 0, 0);
+  color: #fff;
+}
+
+.modal-content {
+  text-align: center;
+}
+
+.modal-header {
+  background-color: rgba(149, 27, 129, 0.6117647059);
+  display: block;
+}
+
+.modal-title {
+  align-items: center;
+}
+
+.modal-body {
+  background-color: rgba(206, 206, 206, 0.431372549);
+}
+
+.modal-footer {
+  background-color: rgba(206, 206, 206, 0.431372549);
+}
+
+.btn:hover {
+  background-color: rgb(107, 0, 0);
+}
+
+/*Toevoegen btn*/
+.btn.btn-primary {
+  background-color: #9c0082;
+  color: #fff;
+}
+
+.btn.btn-secondary {
+  background-color: rgb(201, 0, 0);
+  color: #fff;
+}
+
+.modal-content {
+  text-align: center;
+}
+
+.modal-title {
+  align-items: center;
+}
+
+.modal-header {
+  background-color: rgba(149, 27, 129, 0.6117647059);
+  display: block;
+}
+
+.modal-body {
+  background-color: rgba(206, 206, 206, 0.431372549);
+}
+
+.modal-footer {
+  background-color: rgba(206, 206, 206, 0.431372549);
+}
+
+.btn.btn-secondary:hover {
+  background-color: rgb(107, 0, 0) !important;
+}
+
+.btn.btn-primary:hover {
+  background-color: #6d0f5d !important;
 }/*# sourceMappingURL=style.css.map */
